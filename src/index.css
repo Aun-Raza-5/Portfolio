@@ -1,0 +1,120 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll for internal links */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Full height reset */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* App body transition for dark/light mode */
+.app-body {
+  @apply transition-colors duration-700;
+}
+
+/* Base body styling */
+body {
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100 font-sans antialiased;
+  line-height: 1.5; /* slightly tighter for dense sections */
+}
+
+/* Headings hierarchy */
+h1, h2, h3, h4 {
+  @apply font-bold tracking-tight;
+}
+h1 { @apply text-4xl md:text-5xl mb-4; }
+h2 { @apply text-3xl md:text-4xl mb-4; }
+h3 { @apply text-2xl mb-2; }
+
+/* Paragraph styling */
+p {
+  @apply text-gray-900 dark:text-gray-100 text-lg md:text-lg leading-relaxed mb-4;
+}
+
+/* Links */
+a {
+  @apply hover:opacity-90 transition;
+}
+
+/* Buttons */
+button, .button {
+  @apply cursor-pointer text-white font-medium rounded-xl px-4 py-2 bg-gradient-to-r from-[#0ea5e9] to-[#facc15] hover:opacity-90 transition;
+}
+
+/* Form elements */
+input, textarea {
+  @apply bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#0ea5e9] dark:focus:ring-[#facc15] rounded-xl p-3 transition border border-gray-300 dark:border-gray-600;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  @apply bg-gray-400 dark:bg-gray-700 rounded-full;
+}
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+/* Cards for projects & education */
+.card {
+  @apply p-5 md:p-6 bg-gray-100 dark:bg-gray-800 rounded-2xl shadow-lg transform transition duration-300 hover:shadow-2xl hover:-translate-y-1 hover:scale-105 border border-gray-200 dark:border-gray-700;
+}
+
+/* Navbar links */
+.nav-link {
+  @apply relative text-gray-900 dark:text-gray-100 hover:text-[#0ea5e9] dark:hover:text-[#facc15] transition;
+}
+.nav-link.active::after {
+  content: '';
+  @apply absolute -bottom-1 left-0 w-full h-0.5 rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#facc15];
+}
+
+/* Background blob animations */
+.animate-blob { 
+  animation: blob 7s infinite; 
+}
+.animation-delay-2000 { animation-delay: 2s; }
+.animation-delay-4000 { animation-delay: 4s; }
+@keyframes blob {
+  0%, 100% { transform: translate(0px, 0px) scale(1); }
+  33% { transform: translate(30px, -50px) scale(1.1); }
+  66% { transform: translate(-20px, 20px) scale(0.9); }
+}
+
+/* Section fade-in animations */
+.animate-fadeIn { 
+  animation: fadeIn 1s forwards; 
+}
+.animate-fadeIn.delay-200 { animation-delay: 0.2s; }
+.animate-fadeIn.delay-300 { animation-delay: 0.3s; }
+.animate-fadeIn.delay-400 { animation-delay: 0.4s; }
+.animate-fadeIn.delay-600 { animation-delay: 0.6s; }
+
+@keyframes fadeIn { 
+  from {opacity:0; transform:translateY(10px);} 
+  to{opacity:1; transform:translateY(0);} 
+}
+
+/* Section padding utility */
+.section-padding {
+  @apply px-4 md:px-0 py-12 md:py-16; /* reduced padding for tighter sections */
+}
+
+/* Avatar circle */
+.avatar {
+  @apply w-36 h-36 md:w-40 md:h-40 mx-auto mb-4 md:mb-6 rounded-full bg-gradient-to-r from-[#0ea5e9] to-[#facc15] flex items-center justify-center text-white text-5xl md:text-6xl font-bold shadow-lg;
+}
+
+/* Footer styling */
+footer {
+  @apply text-center py-4 md:py-6 text-gray-500 dark:text-gray-400 border-t border-gray-200 dark:border-gray-700;
+}
