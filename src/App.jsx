@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaGithub, FaLinkedin, FaEnvelope, FaProjectDiagram, FaGraduationCap, FaEnvelopeOpenText } from "react-icons/fa";
+import LaptopAvatar from "./assets/software-development.png";
+
 
 function App() {
   const [darkMode, setDarkMode] = useState(true);
@@ -79,14 +81,41 @@ function App() {
           </div>
         </nav>
 
-        {/* About Section */}
-        <section id="about" className="max-w-4xl mx-auto text-center mt-28 mb-8 scroll-mt-24 opacity-0 animate-fadeIn section-padding">
-          <div className="avatar mb-6 mx-auto w-28 h-28 rounded-full bg-blue-400 flex items-center justify-center text-3xl font-bold text-white">SA</div>
-          <h2 className="text-4xl md:text-5xl font-bold text-[#0ea5e9] mb-3">Graduate Software Engineer</h2>
-          <p className="text-gray-900 dark:text-gray-100 text-lg leading-relaxed">
-            Adaptable Computer Science graduate from Queen’s University Belfast with industry experience as a Software Engineering Intern at Liberty IT. Skilled in AWS cloud services, CI/CD pipelines, automated testing, database engineering, and software development. Strong foundations in Java, C++, Python, SQL, and React. Keen to contribute to innovative solutions in cloud computing, AI, and cybersecurity.
-          </p>
-        </section>
+      {/* About Section */}
+<section
+  id="about"
+  className="max-w-4xl mx-auto text-center mt-28 mb-12 scroll-mt-24 opacity-0 animate-fadeIn section-padding"
+>
+ {/* Avatar */}
+<div className="avatar mb-6 mx-auto w-28 h-28 rounded-full bg-white flex items-center justify-center shadow-lg border-4 border-[#0ea5e9] overflow-hidden">
+  <img
+  src={LaptopAvatar}
+  alt="Laptop Avatar"
+  className="w-20 h-20 object-contain"
+/>
+</div>
+
+  {/* Title */}
+  <h2 className="text-3xl md:text-4xl font-bold text-[#0ea5e9] mb-4 leading-snug">
+    Final-Year Computer Science Student at Queen’s University Belfast
+  </h2>
+
+  {/* Description */}
+  <p className="text-gray-900 dark:text-gray-100 text-lg leading-relaxed px-4 md:px-0">
+    I am a final-year Computer Science student at Queen’s University Belfast, predicted to graduate with a
+    <strong> First-Class (1:1) Honours degree</strong>. I have completed a year-long software engineering
+    placement, which gave me valuable exposure to real-world development, cloud technologies, and collaborative
+    project environments.
+    <br /><br />
+    These experiences have strengthened my technical foundation in <strong>software engineering</strong>,
+    <strong> cloud computing</strong>, and <strong>artificial intelligence</strong>, while also enhancing key
+    transferable skills such as <strong>problem-solving</strong>, <strong>communication</strong>, and
+    <strong> teamwork</strong>.
+    <br /><br />
+    My goal is to pursue a career or further study that allows me to deepen my expertise, take on new challenges,
+    and make a meaningful contribution to the field of technology.
+  </p>
+</section>
 
         {/* Projects Section */}
         <section id="projects" className="max-w-6xl mx-auto mb-16 scroll-mt-24 opacity-0 animate-fadeIn delay-200">
@@ -139,22 +168,46 @@ function App() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="max-w-4xl mx-auto mb-8 scroll-mt-24 opacity-0 animate-fadeIn delay-600">
-          <h2 className="text-4xl font-bold text-[#0ea5e9] mb-4 text-center flex items-center justify-center gap-3">
-            <FaEnvelopeOpenText /> Contact Me
-          </h2>
-          <form className="flex flex-col space-y-2">
-            <input type="text" placeholder="Name" className="p-2 rounded border"/>
-            <input type="email" placeholder="Email Address" className="p-2 rounded border"/>
-            <textarea placeholder="Enter your message here..." className="h-32 p-2 rounded border"/>
-            <button type="submit" className="button p-2 rounded bg-[#0ea5e9] text-white font-semibold hover:bg-blue-700 transition">Submit</button>
-          </form>
-        </section>
+<section id="contact" className="max-w-4xl mx-auto mb-8 scroll-mt-24 opacity-0 animate-fadeIn delay-600">
+  <h2 className="text-4xl font-bold text-[#0ea5e9] mb-4 text-center flex items-center justify-center gap-3">
+    <FaEnvelopeOpenText /> Contact Me
+  </h2>
+  <form
+    className="flex flex-col space-y-3"
+    onSubmit={(e) => {
+      e.preventDefault();
+      const name = e.target.name.value;
+      const message = e.target.message.value;
+      window.location.href = `mailto:sraza02@qub.ac.uk?subject=Message from ${encodeURIComponent(name)}&body=${encodeURIComponent(message)}`;
+    }}
+  >
+    <input
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+      className="p-2 rounded border focus:ring-2 focus:ring-[#0ea5e9] outline-none transition"
+    />
+    <textarea
+      name="message"
+      placeholder="Your Message"
+      required
+      className="h-32 p-2 rounded border focus:ring-2 focus:ring-[#0ea5e9] outline-none transition"
+    />
+    <button
+      type="submit"
+      className="button p-2 rounded bg-[#0ea5e9] text-white font-semibold hover:bg-blue-700 transition"
+    >
+      Send Message
+    </button>
+  </form>
+</section>
 
-        {/* Footer */}
-        <footer className="text-center py-4 border-t border-gray-300 dark:border-gray-700">
-          © 2025 Syed Aun Raza
-        </footer>
+
+        <footer className="text-center py-4 border-t border-gray-300 dark:border-gray-700 text-sm">
+  © 2025 Syed Aun Raza. Laptop icon by <a href="https://www.flaticon.com/authors/witdhawaty" target="_blank" rel="noreferrer" className="text-[#0ea5e9] hover:underline">Witdhawaty</a>
+</footer>
+
       </div>
     </div>
   );
